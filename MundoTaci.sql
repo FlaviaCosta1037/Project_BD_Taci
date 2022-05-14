@@ -33,5 +33,19 @@ CREATE TABLE OwnCategoryProeduct
 
 EXEC sp_rename 'OwnCategoryProeduct','OwnCategoryProduct'; --Comando para renomear o nome da tabela
 
+CREATE TABLE Size
+(
+	SizeID Integer NOT NULL,
+	SizeValue char(5)
+);
 
+ALTER TABLE Size ADD PRIMARY KEY (SizeID);
 
+CREATE TABLE Product
+(
+	ProductID Integer NOT NULL PRIMARY KEY IDENTITY,
+	Name Varchar (50) NOT NULL,
+	Description Varchar (1000) NOT NULL,
+	Image Varchar (200) NOT NULL,
+	Size_SizeID
+)
