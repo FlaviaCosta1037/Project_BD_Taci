@@ -22,5 +22,6 @@ ALTER TABLE Client ADD PRIMARY KEY (AdminID);
 
 CREATE TABLE Category
 (
-CategoryID
-)
+CategoryID Integer NOT NULL PRIMARY KEY,
+Name Varchar(50),
+);
