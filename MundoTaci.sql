@@ -53,11 +53,15 @@ CREATE TABLE Manufacturer
 	Name Char (20)
 );
 
+
 CREATE TABLE Product
 (
 	ProductID Integer NOT NULL PRIMARY KEY IDENTITY,
 	Name Varchar (50) NOT NULL,
 	Description Varchar (1000) NOT NULL,
 	Image Varchar (200) NOT NULL,
-	Size_SizeID
+	--Tirar dúvida sobre o atributo Ean13 (char 13) que consta no modelo lógico.
+	ColorID Integer FOREIGN KEY REFERENCES Color,
+	ManufacturerID Integer FOREIGN KEY REFERENCES Manufacturer,
+	SizeID Integer FOREIGN KEY REFERENCES Size
 )
