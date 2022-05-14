@@ -47,6 +47,12 @@ CREATE TABLE Color
 	Name Char (20)
 );
 
+CREATE TABLE Manufacturer
+(
+	ManufacturerID Integer NOT NULL PRIMARY KEY,
+	Name Char (20)
+);
+
 CREATE TABLE Product
 (
 	ProductID Integer NOT NULL PRIMARY KEY IDENTITY,
