@@ -18,7 +18,7 @@ CREATE TABLE Client
 	Name Varchar(50)
 );
 
-ALTER TABLE Client ADD PRIMARY KEY (AdminID);clientownclient
+ALTER TABLE Client ADD PRIMARY KEY (AdminID);
 
 CREATE TABLE Category
 (
@@ -30,3 +30,8 @@ CREATE TABLE OwnCategoryProeduct
 	CategoryID Integer,
 	ProductID Integer
 );
+
+EXEC sp_rename 'OwnCategoryProeduct','OwnCategoryProduct'; --Comando para renomear o nome da tabela
+
+
+
