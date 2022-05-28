@@ -85,6 +85,8 @@ CREATE TABLE Store
 	Owner Varchar(50) NOT NULL,
 	Password Varchar(200) NOT NULL
 );
+--alter table Store add StoreID INTEGER IDENTITY(1,1) PRIMARY KEY;
+
 CREATE TABLE Salesman
 (
 	SalesmanID INTEGER IDENTITY PRIMARY KEY,
