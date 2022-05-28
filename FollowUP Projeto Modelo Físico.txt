@@ -1,0 +1,20 @@
+Modelo físico:
+
+Tabelas:
+
+FAQ ok
+Client ok
+Category ok
+Product ok
+Bonus ok
+Store ok
+SalesMan ok
+Size ok
+Color ok
+Manufacturer ok
+
+Tabela de referencias
+
+OwnCategoryProduct ok
+ProductBonus ok
+StoreProduct ok
