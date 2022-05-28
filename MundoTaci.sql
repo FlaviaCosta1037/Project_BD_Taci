@@ -3,90 +3,77 @@ GO
 USE MundoTaci;
 CREATE TABLE FAQ 
 (
-	FaqID Integer NOT NULL IDENTITY,
+	FaqID INTEGER IDENTITY PRIMARY KEY,
 	Title Varchar(100),
 	Description Varchar (1000),
 );
 
-ALTER TABLE FAQ ADD PRIMARY KEY (FaqID);
-
 CREATE TABLE Client
 (
-	AdminID Integer NOT NULL,
+	AdminID INTEGER IDENTITY PRIMARY KEY ,
 	Email Varchar(50),
 	Password Varchar(100),
 	Name Varchar(50)
 );
 
-ALTER TABLE Client ADD PRIMARY KEY (AdminID);
-
 CREATE TABLE Category
 (
-	CategoryID Integer NOT NULL PRIMARY KEY,
+	CategoryID INTEGER IDENTITY PRIMARY KEY,
 	Name Varchar(50),
 );
-CREATE TABLE OwnCategoryProeduct
+
+CREATE TABLE Product
 (
-	CategoryID Integer,
-	ProductID Integer
+	ProductID INTEGER IDENTITY PRIMARY KEY,
+	Name Varchar (50) NOT NULL,
+	Description Varchar (1000) NOT NULL,
+	Image Varchar (200) NOT NULL,
+	--Tirar dúvida sobre o atributo Ean13 (char 13) que consta no modelo lógico.
+	ColorID INTEGER FOREIGN KEY REFERENCES Color,
+	ManufacturerID INTEGER FOREIGN KEY REFERENCES Manufacturer,
+	SizeID INTEGER FOREIGN KEY REFERENCES Size
+)
+
+CREATE TABLE OwnCategoryProduct
+(
+	CategoryID INTEGER REFERENCES Category (CategoryID),
+	ProductID INTEGER REFERENCES Product (ProductID),
+	PRIMARY KEY (CategoryID, ProductID)
 );
 
-EXEC sp_rename 'OwnCategoryProeduct','OwnCategoryProduct'; --Comando para renomear o nome da tabela
+--EXEC sp_rename 'OwnCategoryProeduct','OwnCategoryProduct'; --Comando para renomear o nome da tabela
 
 CREATE TABLE Size
 (
-	SizeID Integer NOT NULL,
+	SizeID INTEGER IDENTITY PRIMARY KEY,
 	SizeValue char(5)
 );
 
-ALTER TABLE Size ADD PRIMARY KEY (SizeID);
 
 CREATE TABLE Color
 (
-	ColorID Integer NOT NULL PRIMARY KEY,
+	ColorID INTEGER IDENTITY PRIMARY KEY,
 	Name Char (20)
 );
 
 CREATE TABLE Manufacturer
 (
-	ManufacturerID Integer NOT NULL PRIMARY KEY,
+	ManufacturerID INTEGER IDENTITY PRIMARY KEY,
 	Name Char (20)
-);
-
-
-CREATE TABLE Product
-(
-	ProductID Integer NOT NULL PRIMARY KEY IDENTITY,
-	Name Varchar (50) NOT NULL,
-	Description Varchar (1000) NOT NULL,
-	Image Varchar (200) NOT NULL,
-	--Tirar dúvida sobre o atributo Ean13 (char 13) que consta no modelo lógico.
-	ColorID Integer FOREIGN KEY REFERENCES Color,
-	ManufacturerID Integer FOREIGN KEY REFERENCES Manufacturer,
-	SizeID Integer FOREIGN KEY REFERENCES Size
-)
-GO
-CREATE TABLE ProductBonus
-(
-	BonusID INTEGER,
-	ProductID INTEGER
-);
-CREATE TABLE StoreProduct
-(
-	ProductID INTEGER,
-	StoreID INTEGER
 );
 CREATE TABLE Bonus
 (
-	BonusID Integer NOT NULL PRIMARY KEY IDENTITY,
+	BonusID INTEGER IDENTITY PRIMARY KEY,
 	Name Varchar(200) NOT NULL,
 	Value smallmoney NOT NULL, 
 	ExpirationDate Date NOT NULL,
-	StoreID Integer FOREIGN KEY REFERENCES Store,
-	SalesManID Integer FOREIGN KEY REFERENCES SalesMan
+	StoreID INTEGER FOREIGN KEY REFERENCES Store,
+	SalesManID INTEGER FOREIGN KEY REFERENCES SalesMan
 );
-CREATE TABLE Store(
-	StoreID INTEGER NOT NULL PRIMARY KEY IDENTITY,
+
+CREATE TABLE Store
+(
+	StoreID INTEGER IDENTITY PRIMARY KEY,
 	Email Varchar(100) NOT NULL,
 	CNPJ Char(14) NOT NULL,
 	Name Varchar(100) NOT NULL,
@@ -99,7 +86,7 @@ CREATE TABLE Store(
 );
 CREATE TABLE SalesMan
 (
-	SalesManID Integer NOT NULL PRIMARY KEY IDENTITY,
+	SalesManID INTEGER IDENTITY PRIMARY KEY,
 	CPF char(11) NOT NULL,
 	Name Varchar(50) NOT NULL,
 	Phone Varchar(20) NOT NULL,
@@ -107,4 +94,16 @@ CREATE TABLE SalesMan
 	Email Varchar(100) NOT NULL,
 	Password Varchar(200) NOT NULL,
 	StoreID INTEGER FOREIGN KEY REFERENCES Store
+);
+CREATE TABLE ProductBonus
+(
+	BonusID INTEGER REFERENCES Bonus (BonusID),
+	ProductID INTEGER REFERENCES Product (ProductID)
+	PRIMARY KEY (BonusID, ProductID)
+);
+CREATE TABLE StoreProduct
+(
+	ProductID INTEGER REFERENCES Product (ProductID),
+	StoreID INTEGER REFERENCES Store (StoreID)
+	PRIMARY KEY (ProductID, StoreID)
 );
