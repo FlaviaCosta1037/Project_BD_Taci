@@ -8,13 +8,17 @@ Category ok
 Product ok
 Bonus ok
 Store ok
-SalesMan ok
+Salesman ok
 Size ok
 Color ok
 Manufacturer ok
+Trainings ok
+Type ok
 
-Tabela de referencias
+Tabela de referencias:
 
 OwnCategoryProduct ok
 ProductBonus ok
 StoreProduct ok
+TrainingsSalesMan ok
+BonusTrainings ok

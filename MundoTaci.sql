@@ -68,8 +68,9 @@ CREATE TABLE Bonus
 	Value smallmoney NOT NULL, 
 	ExpirationDate Date NOT NULL,
 	StoreID INTEGER FOREIGN KEY REFERENCES Store,
-	SalesManID INTEGER FOREIGN KEY REFERENCES SalesMan
+	SalesmanID INTEGER FOREIGN KEY REFERENCES Salesman
 );
+--alter table Bonus add SalesmanID INTEGER FOREIGN KEY REFERENCES Salesman;
 
 CREATE TABLE Store
 (
@@ -84,9 +85,9 @@ CREATE TABLE Store
 	Owner Varchar(50) NOT NULL,
 	Password Varchar(200) NOT NULL
 );
-CREATE TABLE SalesMan
+CREATE TABLE Salesman
 (
-	SalesManID INTEGER IDENTITY PRIMARY KEY,
+	SalesmanID INTEGER IDENTITY PRIMARY KEY,
 	CPF char(11) NOT NULL,
 	Name Varchar(50) NOT NULL,
 	Phone Varchar(20) NOT NULL,
@@ -95,6 +96,8 @@ CREATE TABLE SalesMan
 	Password Varchar(200) NOT NULL,
 	StoreID INTEGER FOREIGN KEY REFERENCES Store
 );
+
+
 CREATE TABLE ProductBonus
 (
 	BonusID INTEGER REFERENCES Bonus (BonusID),
@@ -106,4 +109,33 @@ CREATE TABLE StoreProduct
 	ProductID INTEGER REFERENCES Product (ProductID),
 	StoreID INTEGER REFERENCES Store (StoreID)
 	PRIMARY KEY (ProductID, StoreID)
+);
+CREATE TABLE Trainings
+(
+	TrainingID INTEGER IDENTITY PRIMARY KEY,
+	Title Varchar(100) NOT NULL,
+	Description Varchar(100) NOT NULL,
+	TotalViews INTEGER,
+	StoreViews INTEGER,
+	Video Varchar(200),
+	UniqueUserViews Char(10),
+	TypeID INTEGER FOREIGN KEY REFERENCES Type (TypeID)
+);
+
+CREATE TABLE Type
+(
+	TypeID INTEGER IDENTITY PRIMARY KEY,
+	Name Varchar(50)
+);
+CREATE TABLE TrainingsSalesMan
+(
+	TrainingID INTEGER REFERENCES Trainings (TrainingID),
+	SalesmanID INTEGER REFERENCES Salesman (SalesmanID),
+	PRIMARY KEY (TrainingID, SalesmanID)
+);
+CREATE TABLE BonusTrainings
+(
+	BonusID INTEGER REFERENCES Bonus (BonusID),
+	TrainingID INTEGER REFERENCES Trainings (TrainingID),
+	PRIMARY KEY (BonusID, TrainingID)
 );
