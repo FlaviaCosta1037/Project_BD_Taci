@@ -1,5 +1,5 @@
 --USE MundoTaci;
---Select * from FAQ;
+
 --INSERT INTO FAQ
 --			(Title, Description)
 --VALUES
@@ -13,8 +13,7 @@
 --			remaining essentially unchanged.');
 
 SELECT Title,Description FROM FAQ;
---DROP TABLE  Client;
---ALTER TABLE Client ADD AdminID INTEGER IDENTITY(1,1);
+
 
 --INSERT INTO Client	
 --			(Email, Password, Name)
@@ -33,7 +32,47 @@ SELECT Email, Password, Name FROM Client;
 --			('Conjuntos');
 SELECT Name FROM Category;
 
-INSERT INTO Size
-			
-			
+--INSERT Size
+--		(SizeValue)
+--VALUES 
+--		('PP'),
+--		('P'),
+--		('M');
+SELECT SizeValue FROM Size;
 
+--INSERT Color	
+--		(Name)
+--VALUES	('Rosa'),
+--		('Amarelo'),
+--		('Vermelho'),
+--		('Azul Bebê');
+SELECT Name FROM Color;
+
+--INSERT Trainings
+--		(Title, Description, TotalViews, StoreViews, Video, UniqueUserViews)
+--VALUES
+--		('Venda Consultiva', 'Contrary to popular belief, Lorem Ipsum is not simply random text.',
+--		100, 5, 'Where does it come ', 6),
+--		('Sou de Algodão', 'Contrary to popular belief, Lorem Ipsum is not simply random text.',
+--		100, 5, 'Where does it come ', 6),
+--		('Todos Ganham', 'Contrary to popular belief, Lorem Ipsum is not simply random text.',
+--		100, 5, 'Where does it come ', 6);
+
+SELECT Title, Description, TotalViews, StoreViews, Video, UniqueUserViews FROM Trainings;
+
+--INSERT Type
+--		(Name)
+--VALUES	
+--		('Vendas'),
+--		('Finanças'),
+--		('Gerenciamento');
+			
+SELECT Name FROM Type;
+
+--INSERT Bonus
+--		(Name, Value, ExpirationDate)
+--VALUES
+--		('Viaje com a família', 999, '2022-07-20'),
+--		('Ganhe um Jantar', 250, '2022-07-21'),
+--		('Vale 500', 500, '2022-07-22');
+SELECT Name, Value, ExpirationDate FROM Bonus;
