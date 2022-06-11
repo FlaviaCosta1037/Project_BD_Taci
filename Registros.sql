@@ -65,7 +65,8 @@ SELECT Title, Description, TotalViews, StoreViews, Video, UniqueUserViews FROM T
 --VALUES	
 --		('Vendas'),
 --		('Finanças'),
---		('Gerenciamento');
+--		('Gerenciamento'),
+--		('Especialista no produto');
 			
 SELECT Name FROM Type;
 
@@ -76,12 +77,8 @@ SELECT Name FROM Type;
 --		('Ganhe um Jantar', 250, '2022-07-21'),
 --		('Vale 500', 500, '2022-07-22');
 
-INSERT INTO Bonus
-		(Name, Value, ExpirationDate)
-VALUES
-		('Viaje com a família', 999, '2022-06-10');
 
-SELECT
+SELECT * FROM Bonus;
 
 --INSERT INTO Manufacturer
 --	       (Name)
@@ -116,4 +113,20 @@ SELECT CPF, Name, Phone, Image, Email, Password FROM Salesman;
 --			('lojadoidel@gmail.com', '12587197000150', 'Idel Lojas', 'Contrary to popular belief, Lorem Ipsum is not simply random text.', 'Rua 02, ibura', '55780570','81887746351', 'There is no one who loves pain itself', 'senhadoidel01'),
 --			('ellocolojas@gmail.com', '87492547001287', 'Elloco rouparia', 'Contrary to popular belief, Lorem Ipsum is not simply random text.', 'Rua 99, raio', '40014967','8197682507','There is no one who loves pain itself', 'soosloucossabem');
 
-SELECT Email, CNPJ, Name, Image, Adress, CEP, Phone, Owner, Password FROM Store;
+
+--Atualização de registros na tabela Training
+--Setados os tipos de treinamentos nos registros de treinamentos (1 - Vendas / 2 - Finanças / 3 - Gerenciamento / 4 - Especialista de Produto)
+
+UPDATE Trainings
+SET TypeID ='4'
+WHERE TrainingID = '5';
+SELECT * FROM Trainings;
+
+--Atualização de registros na tabela Salesman
+--Setado o ID da Loja nos registros do vendedores
+UPDATE Salesman
+SET StoreID ='3'
+WHERE SalesmanID = '2';
+SELECT * FROM Salesman;
+
+		
