@@ -22,3 +22,12 @@ ProductBonus ok
 StoreProduct ok
 TrainingsSalesMan ok
 BonusTrainings ok
+
+=========================================================
+
+Comandos Aprendidos:
+
+DELETE FROM Store WHERE StoreID = 2; (Para excluir um registro da tabela Store)
+
+select * from Store; (Visualização da tabela)
+
