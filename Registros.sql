@@ -86,6 +86,12 @@ SELECT * FROM Bonus;
 --			('algodão egp'),
 --			('algodão marcio'),
 --			('fio peruano');
+
+--INSERT INTO Manufacturer
+--			(Name)
+--VALUES
+--			('Elastano');
+
 SELECT name FROM Manufacturer;
 
 --INSERT INTO Product
@@ -117,16 +123,17 @@ SELECT CPF, Name, Phone, Image, Email, Password FROM Salesman;
 --Atualização de registros na tabela Training
 --Setados os tipos de treinamentos nos registros de treinamentos (1 - Vendas / 2 - Finanças / 3 - Gerenciamento / 4 - Especialista de Produto)
 
-UPDATE Trainings
-SET TypeID ='4'
-WHERE TrainingID = '5';
+--UPDATE Trainings
+--SET TypeID ='4'
+--WHERE TrainingID = '5';
 SELECT * FROM Trainings;
 
 --Atualização de registros na tabela Salesman
 --Setado o ID da Loja nos registros do vendedores
-UPDATE Salesman
-SET StoreID ='3'
-WHERE SalesmanID = '2';
+--UPDATE Salesman
+--SET StoreID ='3'
+--WHERE SalesmanID = '2';
 SELECT * FROM Salesman;
+
 
 		
