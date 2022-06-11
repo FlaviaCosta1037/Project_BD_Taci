@@ -12,3 +12,5 @@ Select p.Name, p.Description, p.Image, c.Name, m.Name, s.SizeID from product AS 
 JOIN color AS c ON p.ColorID = c.ColorID 
 JOIN manufacturer AS m ON p.ManufacturerID = m.ManufacturerID
 JOIN size AS s ON p.SizeID = s.SizeID;
+
+--Observações Professor:

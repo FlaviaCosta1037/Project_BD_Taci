@@ -1,6 +1,7 @@
 CREATE DATABASE MundoTaci;
 GO
 USE MundoTaci;
+
 CREATE TABLE FAQ 
 (
 	FaqID INTEGER IDENTITY PRIMARY KEY,
@@ -22,27 +23,6 @@ CREATE TABLE Category
 	Name Varchar(50),
 );
 
-CREATE TABLE Product
-(
-	ProductID INTEGER IDENTITY(1,1) PRIMARY KEY,
-	Name Varchar (50) NOT NULL,
-	Description Varchar (1000) NOT NULL,
-	Image Varchar (200) NOT NULL,
-	--Tirar dúvida sobre o atributo Ean13 (char 13) que consta no modelo lógico.
-	ColorID INTEGER FOREIGN KEY REFERENCES Color,
-	ManufacturerID INTEGER FOREIGN KEY REFERENCES Manufacturer,
-	SizeID INTEGER FOREIGN KEY REFERENCES Size
-);
-
-CREATE TABLE OwnCategoryProduct
-(
-	CategoryID INTEGER REFERENCES Category (CategoryID),
-	ProductID INTEGER REFERENCES Product (ProductID),
-	PRIMARY KEY (CategoryID, ProductID)
-);
-
---EXEC sp_rename 'OwnCategoryProeduct','OwnCategoryProduct'; --Comando para renomear o nome da tabela
-
 CREATE TABLE Size
 (
 	SizeID INTEGER IDENTITY(1,1) PRIMARY KEY,
@@ -61,16 +41,24 @@ CREATE TABLE Manufacturer
 	ManufacturerID INTEGER IDENTITY(1,1) PRIMARY KEY,
 	Name Char (20)
 );
-CREATE TABLE Bonus
+
+CREATE TABLE Type
 (
-	BonusID INTEGER IDENTITY(1,1) PRIMARY KEY,
-	Name Varchar(200) NOT NULL,
-	Value smallmoney NOT NULL, 
-	ExpirationDate Date NOT NULL,
-	StoreID INTEGER FOREIGN KEY REFERENCES Store,
-	SalesmanID INTEGER FOREIGN KEY REFERENCES Salesman
+	TypeID INTEGER IDENTITY(1,1) PRIMARY KEY,
+	Name Varchar(50)
 );
---alter table Bonus add SalesmanID INTEGER FOREIGN KEY REFERENCES Salesman;
+
+CREATE TABLE Product
+(
+	ProductID INTEGER IDENTITY(1,1) PRIMARY KEY,
+	Name Varchar (50) NOT NULL,
+	Description Varchar (1000) NOT NULL,
+	Image Varchar (200) NOT NULL,
+	--Tirar dúvida sobre o atributo Ean13 (char 13) que consta no modelo lógico.
+	ColorID INTEGER FOREIGN KEY REFERENCES Color,
+	ManufacturerID INTEGER FOREIGN KEY REFERENCES Manufacturer,
+	SizeID INTEGER FOREIGN KEY REFERENCES Size
+);
 
 CREATE TABLE Store
 (
@@ -85,7 +73,6 @@ CREATE TABLE Store
 	Owner Varchar(50) NOT NULL,
 	Password Varchar(200) NOT NULL
 );
---alter table Store add StoreID INTEGER IDENTITY(1,1) PRIMARY KEY;
 
 CREATE TABLE Salesman
 (
@@ -99,6 +86,22 @@ CREATE TABLE Salesman
 	StoreID INTEGER FOREIGN KEY REFERENCES Store
 );
 
+CREATE TABLE Bonus
+(
+	BonusID INTEGER IDENTITY(1,1) PRIMARY KEY,
+	Name Varchar(200) NOT NULL,
+	Value smallmoney NOT NULL, 
+	ExpirationDate Date NOT NULL,
+	StoreID INTEGER FOREIGN KEY REFERENCES Store,
+	SalesmanID INTEGER FOREIGN KEY REFERENCES Salesman
+);
+
+CREATE TABLE OwnCategoryProduct
+(
+	CategoryID INTEGER REFERENCES Category (CategoryID),
+	ProductID INTEGER REFERENCES Product (ProductID),
+	PRIMARY KEY (CategoryID, ProductID)
+);
 
 CREATE TABLE ProductBonus
 (
@@ -106,12 +109,14 @@ CREATE TABLE ProductBonus
 	ProductID INTEGER REFERENCES Product (ProductID)
 	PRIMARY KEY (BonusID, ProductID)
 );
+
 CREATE TABLE StoreProduct
 (
 	ProductID INTEGER REFERENCES Product (ProductID),
 	StoreID INTEGER REFERENCES Store (StoreID)
 	PRIMARY KEY (ProductID, StoreID)
 );
+
 CREATE TABLE Trainings
 (
 	TrainingID INTEGER IDENTITY(1,1) PRIMARY KEY,
@@ -124,20 +129,20 @@ CREATE TABLE Trainings
 	TypeID INTEGER FOREIGN KEY REFERENCES Type (TypeID)
 );
 
-CREATE TABLE Type
-(
-	TypeID INTEGER IDENTITY(1,1) PRIMARY KEY,
-	Name Varchar(50)
-);
 CREATE TABLE TrainingsSalesMan
 (
 	TrainingID INTEGER REFERENCES Trainings (TrainingID),
 	SalesmanID INTEGER REFERENCES Salesman (SalesmanID),
 	PRIMARY KEY (TrainingID, SalesmanID)
 );
+
 CREATE TABLE BonusTrainings
 (
 	BonusID INTEGER REFERENCES Bonus (BonusID),
 	TrainingID INTEGER REFERENCES Trainings (TrainingID),
 	PRIMARY KEY (BonusID, TrainingID)
 );
+
+--EXEC sp_rename 'OwnCategoryProeduct','OwnCategoryProduct'; --Comando para renomear o nome da tabela
+--alter table Bonus add SalesmanID INTEGER FOREIGN KEY REFERENCES Salesman;
+--alter table Store add StoreID INTEGER IDENTITY(1,1) PRIMARY KEY;

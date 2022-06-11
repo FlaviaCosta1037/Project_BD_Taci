@@ -75,7 +75,13 @@ SELECT Name FROM Type;
 --		('Viaje com a família', 999, '2022-07-20'),
 --		('Ganhe um Jantar', 250, '2022-07-21'),
 --		('Vale 500', 500, '2022-07-22');
-SELECT Name, Value, ExpirationDate FROM Bonus;
+
+INSERT INTO Bonus
+		(Name, Value, ExpirationDate)
+VALUES
+		('Viaje com a família', 999, '2022-06-10');
+
+SELECT
 
 --INSERT INTO Manufacturer
 --	       (Name)
