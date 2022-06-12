@@ -76,3 +76,13 @@
 --				(@Email, @Password, @Name);
 
 --EXEC Cliente_InserirDadosCliente 'patriciosilva@gmail.com', 'patopatosdsd', 'Patricio Silva';
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+--Procedure para inserção de dados na tabela Color
+--SELECT * FROM Color;
+--CREATE PROCEDURE Color_InserirDadosCliente
+--				@Name VARCHAR (20)
+--AS
+--		INSERT INTO Color VALUES (@Name);
+				
+--EXEC Color_InserirDadosCliente 'Laranja';
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
