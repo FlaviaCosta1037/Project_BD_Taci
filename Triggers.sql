@@ -141,32 +141,32 @@ USE MundoTaci;
 --VALUES
 --			('Vale Presente', 350, '2022-07-10', 3,2);
 ---------------------------------------------------------------------------------
---Mensagem: Produto atualizado com Sucesso!
---CREATE TRIGGER atualizarProduto
+--Mensagem: Bonificação atualizada com Sucesso!
+--CREATE TRIGGER atualizarBonus
 --ON
---	Product
+--	Bonus
 --FOR 
 --	UPDATE 
 --AS
---	PRINT 'Produto atualizado com sucesso!'
+--	PRINT 'Bonificação atualizada com sucesso!'
 
 ----Comando para atualização do registro
---UPDATE Product
---SET ColorID = 2
---WHERE ProductID = 3;
+--UPDATE Bonus
+--SET ExpirationDate = '2022-08-10'
+--WHERE BonusID = 3;
 ---------------------------------------------------------------------------------
---Mensagem: Produto deletado com Sucesso!
---CREATE TRIGGER deletarProduto
+--Mensagem: Bonificação deletada com Sucesso!
+--CREATE TRIGGER deletarBonificacao
 --ON
---	Product
+--	Bonus
 --FOR
 --	DELETE
 --AS
---	PRINT 'Produto deletado com Sucesso!';
+--	PRINT 'Bonificação deletada com sucesso!';
 
-----Comando para deletar o registro da loja.
---DELETE FROM Product WHERE ProductID=3;
+--Comando para deletar o registro da loja.
+--DELETE FROM Bonus WHERE BonusID=2;
 
-SELECT * FROM Bonus;
-SELECT * FROM Salesman;
+--SELECT * FROM Bonus;
+
 
