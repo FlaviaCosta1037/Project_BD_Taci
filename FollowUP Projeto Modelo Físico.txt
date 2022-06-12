@@ -31,3 +31,14 @@ DELETE FROM Store WHERE StoreID = 2; (Para excluir um registro da tabela Store)
 
 select * from Store; (Visualização da tabela)
 
+
+TRIGGERS:
+Mensagem de loja adicionada com sucesso
+Mensagem de loja atualizada com sucesso
+Mensagem de loja deletada com sucesso
+
+Mensagem de produto adicionado com sucesso
+Mensagem de produto atualizado com sucesso
+Mensagem de produto deletado com sucesso
+
+

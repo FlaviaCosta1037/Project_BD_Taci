@@ -125,5 +125,48 @@ USE MundoTaci;
 --SELECT * FROM STORE;
 
 
+---------------------------------------------------------------------------------
+--Mensagem: Bonificação adicionada com Sucesso!
 
+--CREATE TRIGGER addBonificacao
+--ON
+--	Bonus
+--FOR 
+--	INSERT 
+--AS
+--	PRINT 'Bonificação adicionada com sucesso!';
+
+--INSERT INTO Bonus
+--			(Name,Value,ExpirationDate,StoreID,SalesmanID)
+--VALUES
+--			('Vale Presente', 350, '2022-07-10', 3,2);
+---------------------------------------------------------------------------------
+--Mensagem: Produto atualizado com Sucesso!
+--CREATE TRIGGER atualizarProduto
+--ON
+--	Product
+--FOR 
+--	UPDATE 
+--AS
+--	PRINT 'Produto atualizado com sucesso!'
+
+----Comando para atualização do registro
+--UPDATE Product
+--SET ColorID = 2
+--WHERE ProductID = 3;
+---------------------------------------------------------------------------------
+--Mensagem: Produto deletado com Sucesso!
+--CREATE TRIGGER deletarProduto
+--ON
+--	Product
+--FOR
+--	DELETE
+--AS
+--	PRINT 'Produto deletado com Sucesso!';
+
+----Comando para deletar o registro da loja.
+--DELETE FROM Product WHERE ProductID=3;
+
+SELECT * FROM Bonus;
+SELECT * FROM Salesman;
 
