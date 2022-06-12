@@ -41,4 +41,11 @@ Mensagem de produto adicionado com sucesso
 Mensagem de produto atualizado com sucesso
 Mensagem de produto deletado com sucesso
 
+Mensagem de bonificação adicionada com sucesso
+Mensagem de bonificação atualizada com sucesso
+Mensagem de bonificação deletada com sucesso
+
+Mensagem de Faq adicionada com sucesso.
+
+Validação de data sessão Bonus.
 

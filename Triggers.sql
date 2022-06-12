@@ -1,35 +1,22 @@
-USE MundoTaci;
-----Triggers para Adicionar Bonificação
+--USE MundoTaci;
+--Comandos para listar triggers e excluir triggers
+--SELECT * FROM SYS.TRIGGERS;
+--DROP TRIGGER erroData;
 
---INSERT INTO Bonus
---			(Name, Value, ExpirationDate)
---VALUES
---		('Viaje com a família', 999, '2022-06-10');
+--Triggers para reclamar datas inválidas - Tabela bonus
 
-
---CREATE TRIGGER erroBonus
---ON 
---	Bonus
-
+--CREATE TRIGGER erroData
+--ON	Bonus
 --INSTEAD OF INSERT
 --AS
 --BEGIN
---	DECLARE @Name varchar(200),
---			@Value smallmoney,
---			@ExpirationDate Date
---	@Name = SELECT Name FROM INSERTED;
---	@Value = SELECT value FROM INSERTED;
---	@ExpirationDate = SELECT ExpirationDate FROM INSERTED;
-
---	IF(@ExpirationDate < GETDATE())
+--	IF EXISTS (SELECT ExpirationDate FROM INSERTED WHERE ExpirationDate < GETDATE())
 --		PRINT 'Data inserida menor do que a data atual'
---	ELSE
---		PRINT 'Bonus registrado com sucesso!';
+--	ELSE 
+--		INSERT INTO Bonus SELECT Name,Value,ExpirationDate,StoreID,SalesmanID FROM INSERTED;
 --END;
-
---SELECT * FROM SYS.TRIGGERS;
-----DROP TRIGGER ControleBonus;
 --SELECT * FROM Bonus;
+
 ---------------------------------------------------------------------------------
 
 --Triggers de mensgens
