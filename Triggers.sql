@@ -169,4 +169,21 @@ USE MundoTaci;
 
 --SELECT * FROM Bonus;
 
+---------------------------------------------------------------------------------
+--Mensagem: FAQ adicionada com Sucesso!
+
+--CREATE TRIGGER addFaq
+--ON
+--	FAQ
+--FOR 
+--	INSERT 
+--AS
+--	PRINT 'Faq adicionada com sucesso!';
+
+--INSERT INTO FAQ
+--			(Title,Description)
+--VALUES
+--			('Resetar Senha', 'when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
+--			but also the leap into electronic typesetting');
+--SELECT * FROM FAQ;
 
