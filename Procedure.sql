@@ -25,7 +25,7 @@
 --    @TrainingID = 4,
 --    @SalesmanID = 1
 
------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --Procedure para inserção de dados na tabela Bonus
 
@@ -42,7 +42,7 @@
 --EXEC Bonus_InserirDados 'Vale Felicidade', 200, '2022-09-02',NULL, NULL
 
 --SELECT * FROM Bonus;
--------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
 --Procedure para inserção de dados na tabela Store
 
 --SELECT * FROM STORE;
@@ -63,5 +63,16 @@
 --EXEC Store_InserirDados 'roupasLindas@uol.com.br', '12456456000488', 'Roupas Lindas', 'Contrary to popular belief, Lorem Ipsum is not simply random text.',
 --						'Rua das Fonsecas, 45, Abigobal', '51184452', '8156646325', 'Cecilia', 'funfoutudoA';
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+--Procedure para inserção de dados na tabela Client
+--SELECT * FROM Client;
+--CREATE PROCEDURE Cliente_InserirDadosCliente
+--				@Email		VARCHAR(50),
+--				@Password	VARCHAR(100),
+--				@Name		VARCHAR(50)
+--AS
+--		INSERT INTO Client VALUES
+--				(@Email, @Password, @Name);
 
+--EXEC Cliente_InserirDadosCliente 'patriciosilva@gmail.com', 'patopatosdsd', 'Patricio Silva';

@@ -54,5 +54,6 @@ Validação de data tabela Bonus.
 PROCEDURES:
 
 Procedure para inserção de dados na tabela Bonus
-
+Procedure para inserção de dados na tabela Store
+Procedure para inserção de dados na tabela Client
 
