@@ -70,13 +70,15 @@ SELECT Title, Description, TotalViews, StoreViews, Video, UniqueUserViews FROM T
 			
 SELECT Name FROM Type;
 
---INSERT Bonus
---		(Name, Value, ExpirationDate)
---VALUES
---		('Viaje com a família', 999, '2022-07-20'),
+INSERT INTO Bonus
+		(Name, Value, ExpirationDate)
+VALUES
+		('Vale Presente', 150, '2022-07-15');
 --		('Ganhe um Jantar', 250, '2022-07-21'),
 --		('Vale 500', 500, '2022-07-22');
-
+--UPDATE Bonus
+--SET StoreID = 2, SalesmanID = 1
+--WHERE BonusID = 3;
 
 SELECT * FROM Bonus;
 
