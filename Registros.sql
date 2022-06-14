@@ -137,5 +137,9 @@
 --WHERE SalesmanID = '2';
 --SELECT * FROM Salesman;
 
+--Atualização de registros na tabela Trainings
+--UPDATE Trainings set TypeID = 1 WHERE TrainingID = 1;
+--UPDATE Trainings set TypeID = 2 WHERE TrainingID = 3;
+--UPDATE Trainings set TypeID = 3 WHERE TrainingID = 2;
 
 		
