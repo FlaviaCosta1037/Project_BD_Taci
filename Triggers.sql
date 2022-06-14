@@ -26,9 +26,9 @@
 --ON
 --	Store
 --FOR 
---	AFTER INSERT 
+--	UPDATE
 --AS
---	PRINT 'Loja adicionada com sucesso!'
+--	PRINT 'Loja adicionada com sucesso!';
 ---------------------------------------------------------------------------------
 
 --Mensagem: Loja atualizada com Sucesso!

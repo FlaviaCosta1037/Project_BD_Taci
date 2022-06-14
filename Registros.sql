@@ -12,7 +12,7 @@
 --			a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, 
 --			remaining essentially unchanged.');
 
-SELECT Title,Description FROM FAQ;
+--SELECT Title,Description FROM FAQ;
 
 
 --INSERT INTO Client	
@@ -21,7 +21,7 @@ SELECT Title,Description FROM FAQ;
 --			('flavinha.goncalves@gmail.com', 'novaroma123@187','Flavia Costa'),
 --			('fred.lucena@gmail.com', 'novaroma44@1997','Fred Lucena'),
 --			('silviosantos@hotmail.com', 'silviano@maciano','Silvio Santos');
-SELECT Email, Password, Name FROM Client;
+--SELECT Email, Password, Name FROM Client;
 
 
 --INSERT INTO Category
@@ -30,7 +30,7 @@ SELECT Email, Password, Name FROM Client;
 --			('Shorts'),
 --			('Blusas'),
 --			('Conjuntos');
-SELECT Name FROM Category;
+--SELECT Name FROM Category;
 
 --INSERT Size
 --		(SizeValue)
@@ -38,7 +38,7 @@ SELECT Name FROM Category;
 --		('PP'),
 --		('P'),
 --		('M');
-SELECT SizeValue FROM Size;
+--SELECT SizeValue FROM Size;
 
 --INSERT Color	
 --		(Name)
@@ -46,7 +46,7 @@ SELECT SizeValue FROM Size;
 --		('Amarelo'),
 --		('Vermelho'),
 --		('Azul Bebê');
-SELECT Name FROM Color;
+--SELECT Name FROM Color;
 
 --INSERT Trainings
 --		(Title, Description, TotalViews, StoreViews, Video, UniqueUserViews)
@@ -58,7 +58,7 @@ SELECT Name FROM Color;
 --		('Todos Ganham', 'Contrary to popular belief, Lorem Ipsum is not simply random text.',
 --		100, 5, 'Where does it come ', 6);
 
-SELECT Title, Description, TotalViews, StoreViews, Video, UniqueUserViews FROM Trainings;
+--SELECT Title, Description, TotalViews, StoreViews, Video, UniqueUserViews FROM Trainings;
 
 --INSERT Type
 --		(Name)
@@ -68,19 +68,19 @@ SELECT Title, Description, TotalViews, StoreViews, Video, UniqueUserViews FROM T
 --		('Gerenciamento'),
 --		('Especialista no produto');
 			
-SELECT Name FROM Type;
+--SELECT Name FROM Type;
 
-INSERT INTO Bonus
-		(Name, Value, ExpirationDate)
-VALUES
-		('Vale Presente', 150, '2022-07-15');
+--INSERT INTO Bonus
+--		(Name, Value, ExpirationDate)
+--VALUES
+--		('Vale Presente', 150, '2022-07-15'),
 --		('Ganhe um Jantar', 250, '2022-07-21'),
 --		('Vale 500', 500, '2022-07-22');
 --UPDATE Bonus
 --SET StoreID = 2, SalesmanID = 1
 --WHERE BonusID = 3;
 
-SELECT * FROM Bonus;
+--SELECT * FROM Bonus;
 
 --INSERT INTO Manufacturer
 --	       (Name)
@@ -94,7 +94,7 @@ SELECT * FROM Bonus;
 --VALUES
 --			('Elastano');
 
-SELECT name FROM Manufacturer;
+--SELECT name FROM Manufacturer;
 
 --INSERT INTO Product
 --            (Name, Description, Image)
@@ -103,7 +103,7 @@ SELECT name FROM Manufacturer;
 --		   ('Bermuda', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', 'Contrary to popular belief, Lorem Ipsum is not simply random text.'),
 --		   ('Vestido', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', 'Contrary to popular belief, Lorem Ipsum is not simply random text.');
 			
-SELECT Name, Description, Image FROM Product;
+--SELECT Name, Description, Image FROM Product;
 
 --INSERT INTO Salesman
 --            (CPF, Name, Phone, Image, Email, Password)
@@ -112,7 +112,7 @@ SELECT Name, Description, Image FROM Product;
 --			('02115298725', 'Diego Maradona', '81987524658', 'Contrary to popular belief, Lorem Ipsum is not simply random text.', 'dieguitoarmando@hotmail.com', 'Lamanodios'),
 --			('52874598736', 'Ademir Menezes', '819887543698', 'Contrary to popular belief, Lorem Ipsum is not simply random text.', 'queixadabrabo@hotmail.com', 'Fazedordegol');
 
-SELECT CPF, Name, Phone, Image, Email, Password FROM Salesman;
+--SELECT CPF, Name, Phone, Image, Email, Password FROM Salesman;
 
 --INSERT INTO Store
 --            (Email, CNPJ, Name, Image, Adress, CEP, Phone, Owner, Password)
@@ -128,14 +128,14 @@ SELECT CPF, Name, Phone, Image, Email, Password FROM Salesman;
 --UPDATE Trainings
 --SET TypeID ='4'
 --WHERE TrainingID = '5';
-SELECT * FROM Trainings;
+--SELECT * FROM Trainings;
 
 --Atualização de registros na tabela Salesman
 --Setado o ID da Loja nos registros do vendedores
 --UPDATE Salesman
 --SET StoreID ='3'
 --WHERE SalesmanID = '2';
-SELECT * FROM Salesman;
+--SELECT * FROM Salesman;
 
 
 		
