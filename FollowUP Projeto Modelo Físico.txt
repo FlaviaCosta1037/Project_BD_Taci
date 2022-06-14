@@ -57,3 +57,7 @@ Procedure para inserção de dados na tabela Bonus
 Procedure para inserção de dados na tabela Store
 Procedure para inserção de dados na tabela Client
 
+
+INTERLIGANDO TABELAS:
+
+Criada uma consulta interligando as tabelas Trainings com Type
