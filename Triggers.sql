@@ -78,10 +78,10 @@
 --	PRINT 'Produto adicionado com sucesso!';
 
 --INSERT INTO Product
---			(Name,Description,Image,ColorID,ManufacturerID,SizeID)
+--			(Name,Description,Image,Ean13,SizeID,ColorID,ManufacturerID)
 --VALUES
 --			('Biquini', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
---			'Contrary to popular belief, Lorem Ipsum is not simply random text.',1, 4,2);
+--			'Contrary to popular belief, Lorem Ipsum is not simply random text.','hjk523io954g',1, 4,2);
 ---------------------------------------------------------------------------------
 --Mensagem: Produto atualizado com Sucesso!
 --CREATE TRIGGER atualizarProduto

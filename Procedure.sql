@@ -1,49 +1,49 @@
---REGISTRO DE PROCEDURES
---COMANDOS
---DROP PROCEDURE <Nome> (Excluir um procedure)
+----REGISTRO DE PROCEDURES
+----COMANDOS
+----DROP PROCEDURE <Nome> (Excluir um procedure)
 
---Procedure para inserir valor em tabela intermediaria 
+----Procedure para inserir valor em tabela intermediaria 
 
---CREATE PROCEDURE SetTrainingsSalesManValue 
---        @TrainingID INTEGER, 
---        @SalesmanID INTEGER 
---AS 
---BEGIN
---        INSERT INTO TrainingsSalesMan
---            (
---                TrainingID, 
---                SalesmanID
---            )
---        VALUES 
---            (
---            @TrainingID, 
---            @SalesmanID
---            )
---END
+----CREATE PROCEDURE SetTrainingsSalesManValue 
+----        @TrainingID INTEGER, 
+----        @SalesmanID INTEGER 
+----AS 
+----BEGIN
+----        INSERT INTO TrainingsSalesMan
+----            (
+----                TrainingID, 
+----                SalesmanID
+----            )
+----        VALUES 
+----            (
+----            @TrainingID, 
+----            @SalesmanID
+----            )
+----END
 
---EXEC SetTrainingsSalesManValue
---    @TrainingID = 2,
---    @SalesmanID = 1;
+----EXEC SetTrainingsSalesManValue
+----    @TrainingID = 2,
+----    @SalesmanID = 1;
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
---Procedure para inserção de dados na tabela Bonus
+----Procedure para inserção de dados na tabela Bonus
 
---CREATE PROCEDURE Bonus_InserirDados
---				@Name VARCHAR(200),
---				@Value SMALLMONEY,
---				@ExpirationDate DATE,
---				@StoreID INTEGER,
---				@SalesmanID INTEGER
---AS
---		INSERT INTO Bonus VALUES
---				(@Name, @Value, @ExpirationDate, @StoreID, @SalesmanID);
+----CREATE PROCEDURE Bonus_InserirDados
+----				@Name VARCHAR(200),
+----				@Value SMALLMONEY,
+----				@ExpirationDate DATE,
+----				@StoreID INTEGER,
+----				@SalesmanID INTEGER
+----AS
+----		INSERT INTO Bonus VALUES
+----				(@Name, @Value, @ExpirationDate, @StoreID, @SalesmanID);
 
---EXEC Bonus_InserirDados 'Vale Felicidade', 200, '2022-09-02',NULL, NULL
+----EXEC Bonus_InserirDados 'Vale Felicidade', 200, '2022-09-02',NULL, NULL
 
---SELECT * FROM Bonus;
----------------------------------------------------------------------------------------------------------------------------------------------------------------
---Procedure para inserção de dados na tabela Store
+----SELECT * FROM Bonus;
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+----Procedure para inserção de dados na tabela Store
 
 --SELECT * FROM STORE;
 --CREATE PROCEDURE Store_InserirDados
@@ -63,9 +63,9 @@
 --EXEC Store_InserirDados 'roupasLindas@uol.com.br', '12456456000488', 'Roupas Lindas', 'Contrary to popular belief, Lorem Ipsum is not simply random text.',
 --						'Rua das Fonsecas, 45, Abigobal', '51184452', '8156646325', 'Cecilia', 'funfoutudoA';
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
---Procedure para inserção de dados na tabela Client
+----Procedure para inserção de dados na tabela Client
 --SELECT * FROM Client;
 --CREATE PROCEDURE Cliente_InserirDadosCliente
 --				@Email		VARCHAR(50),
@@ -76,8 +76,8 @@
 --				(@Email, @Password, @Name);
 
 --EXEC Cliente_InserirDadosCliente 'patriciosilva@gmail.com', 'patopatosdsd', 'Patricio Silva';
----------------------------------------------------------------------------------------------------------------------------------------------------------------
---Procedure para inserção de dados na tabela Color
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+----Procedure para inserção de dados na tabela Color
 --SELECT * FROM Color;
 --CREATE PROCEDURE Color_InserirDadosCliente
 --				@Name VARCHAR (20)
@@ -85,7 +85,7 @@
 --		INSERT INTO Color VALUES (@Name);
 				
 --EXEC Color_InserirDadosCliente 'Laranja';
----------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 

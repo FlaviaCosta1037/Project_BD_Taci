@@ -1,5 +1,5 @@
---Requisito solicitado: Função usada para contabilizar a quantidade de treinos disponíveis
+----Requisito solicitado: Função usada para contabilizar a quantidade de treinos disponíveis
 
-Select COUNT(TrainingID) as "Quantidade de treinos" from trainings;
+--Select COUNT(TrainingID) as "Quantidade de treinos" from trainings;
 
---Observações Professor:
+----Observações Professor:

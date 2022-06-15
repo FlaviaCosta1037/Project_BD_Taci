@@ -12,7 +12,7 @@
 --			a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, 
 --			remaining essentially unchanged.');
 
---SELECT Title,Description FROM FAQ;
+--SELECT * FROM FAQ;
 
 
 --INSERT INTO Client	
@@ -21,7 +21,8 @@
 --			('flavinha.goncalves@gmail.com', 'novaroma123@187','Flavia Costa'),
 --			('fred.lucena@gmail.com', 'novaroma44@1997','Fred Lucena'),
 --			('silviosantos@hotmail.com', 'silviano@maciano','Silvio Santos');
---SELECT Email, Password, Name FROM Client;
+
+--SELECT * FROM Client;
 
 
 --INSERT INTO Category
@@ -30,7 +31,8 @@
 --			('Shorts'),
 --			('Blusas'),
 --			('Conjuntos');
---SELECT Name FROM Category;
+
+--SELECT * FROM Category;
 
 --INSERT Size
 --		(SizeValue)
@@ -38,7 +40,7 @@
 --		('PP'),
 --		('P'),
 --		('M');
---SELECT SizeValue FROM Size;
+--SELECT * FROM Size;
 
 --INSERT Color	
 --		(Name)
@@ -46,7 +48,7 @@
 --		('Amarelo'),
 --		('Vermelho'),
 --		('Azul Bebê');
---SELECT Name FROM Color;
+--SELECT * FROM Color;
 
 --INSERT Trainings
 --		(Title, Description, TotalViews, StoreViews, Video, UniqueUserViews)
@@ -58,7 +60,7 @@
 --		('Todos Ganham', 'Contrary to popular belief, Lorem Ipsum is not simply random text.',
 --		100, 5, 'Where does it come ', 6);
 
---SELECT Title, Description, TotalViews, StoreViews, Video, UniqueUserViews FROM Trainings;
+--SELECT * FROM Trainings;
 
 --INSERT Type
 --		(Name)
@@ -68,7 +70,7 @@
 --		('Gerenciamento'),
 --		('Especialista no produto');
 			
---SELECT Name FROM Type;
+--SELECT * FROM Type;
 
 --INSERT INTO Bonus
 --		(Name, Value, ExpirationDate)
@@ -76,6 +78,7 @@
 --		('Vale Presente', 150, '2022-07-15'),
 --		('Ganhe um Jantar', 250, '2022-07-21'),
 --		('Vale 500', 500, '2022-07-22');
+
 --UPDATE Bonus
 --SET StoreID = 2, SalesmanID = 1
 --WHERE BonusID = 3;
@@ -97,13 +100,13 @@
 --SELECT name FROM Manufacturer;
 
 --INSERT INTO Product
---            (Name, Description, Image)
+--            (Name, Description, Image, Ean13)
 --VALUES
---           ('Camisa', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', 'Contrary to popular belief, Lorem Ipsum is not simply random text.'),
---		   ('Bermuda', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', 'Contrary to popular belief, Lorem Ipsum is not simply random text.'),
---		   ('Vestido', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', 'Contrary to popular belief, Lorem Ipsum is not simply random text.');
+--           ('Camisa', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', 'Contrary to popular belief, Lorem Ipsum is not simply random text.', 'asd123se58145'),
+--		   ('Bermuda', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', 'Contrary to popular belief, Lorem Ipsum is not simply random text.','fdr568dfg1236'),
+--		   ('Vestido', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', 'Contrary to popular belief, Lorem Ipsum is not simply random text.','yth569hji1235');
 			
---SELECT Name, Description, Image FROM Product;
+--SELECT * FROM Product;
 
 --INSERT INTO Salesman
 --            (CPF, Name, Phone, Image, Email, Password)
@@ -112,7 +115,7 @@
 --			('02115298725', 'Diego Maradona', '81987524658', 'Contrary to popular belief, Lorem Ipsum is not simply random text.', 'dieguitoarmando@hotmail.com', 'Lamanodios'),
 --			('52874598736', 'Ademir Menezes', '819887543698', 'Contrary to popular belief, Lorem Ipsum is not simply random text.', 'queixadabrabo@hotmail.com', 'Fazedordegol');
 
---SELECT CPF, Name, Phone, Image, Email, Password FROM Salesman;
+--SELECT * FROM Salesman;
 
 --INSERT INTO Store
 --            (Email, CNPJ, Name, Image, Adress, CEP, Phone, Owner, Password)
@@ -126,18 +129,20 @@
 --Setados os tipos de treinamentos nos registros de treinamentos (1 - Vendas / 2 - Finanças / 3 - Gerenciamento / 4 - Especialista de Produto)
 
 --UPDATE Trainings
---SET TypeID ='4'
---WHERE TrainingID = '5';
+--SET TypeID ='1'
+--WHERE TrainingID = '3';
 --SELECT * FROM Trainings;
 
 --Atualização de registros na tabela Salesman
 --Setado o ID da Loja nos registros do vendedores
+
 --UPDATE Salesman
---SET StoreID ='3'
---WHERE SalesmanID = '2';
+--SET StoreID ='1'
+--WHERE SalesmanID = '3';
 --SELECT * FROM Salesman;
 
 --Atualização de registros na tabela Trainings
+
 --UPDATE Trainings set TypeID = 1 WHERE TrainingID = 1;
 --UPDATE Trainings set TypeID = 2 WHERE TrainingID = 3;
 --UPDATE Trainings set TypeID = 3 WHERE TrainingID = 2;
