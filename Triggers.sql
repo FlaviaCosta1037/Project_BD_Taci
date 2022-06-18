@@ -1,44 +1,59 @@
---USE MundoTaci;
+USE MundoTaci;
 --Comandos para listar triggers e excluir triggers
 --SELECT * FROM SYS.TRIGGERS;
 --DROP TRIGGER erroData;
 
---Triggers para reclamar datas inv·lidas - Tabela bonus
+--Triggers para reclamar datas inv√°lidas - Tabela bonus
 
---CREATE TRIGGER erroData
---ON	Bonus
---INSTEAD OF INSERT
---AS
---BEGIN
---	IF EXISTS (SELECT ExpirationDate FROM INSERTED WHERE ExpirationDate < GETDATE())
---		PRINT 'Data inserida menor do que a data atual'
---	ELSE 
---		INSERT INTO Bonus SELECT Name,Value,ExpirationDate,StoreID,SalesmanID FROM INSERTED;
---END;
+CREATE TRIGGER erroData
+ON	Bonus
+INSTEAD OF INSERT
+AS
+BEGIN
+	IF EXISTS (SELECT ExpirationDate FROM INSERTED WHERE ExpirationDate < GETDATE())
+		PRINT 'Data inserida menor do que a data atual'
+	ELSE 
+		INSERT INTO Bonus SELECT Name,Value,ExpirationDate,StoreID,SalesmanID FROM INSERTED;
+END;
 --SELECT * FROM Bonus;
+--INSERT INTO Bonus VALUES ('Vale viagem', 500, '2022-06-19', null, null)
 
----------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+CREATE TRIGGER validacaoCNPJ
+ON Store
+INSTEAD OF INSERT
+AS
+BEGIN
+	IF EXISTS(SELECT CNPJ FROM INSERTED WHERE LEN(CNPJ) <> 14)
+		PRINT 'CNPJ INV√ÅLIDO'
+	ELSE
+		INSERT INTO Store SELECT Email, CNPJ, Name, Image, Adress, CEP, Phone, Owner, Password FROM INSERTED;
+END;
+
+--SELECT * FROM Store
+--INSERT INTO Store (Email, CNPJ, Name, Image, Adress, CEP, Phone, Owner, Password) Values('negoStore@gmail.com','0178970001091', 'Nego Store', 'alt image', 'Rua do boteco 01', '12345678', '81997892515', 'O nego', 'Nego rulez')
+-------------------------------------------------------------------------------
 
 --Triggers de mensgens
 
 --Mensagem: Loja Adicionada com Sucesso!
---CREATE TRIGGER registroNovaLoja
---ON
---	Store
---FOR 
---	UPDATE
---AS
---	PRINT 'Loja adicionada com sucesso!';
----------------------------------------------------------------------------------
+CREATE TRIGGER registroNovaLoja
+ON
+	Store
+FOR 
+	UPDATE
+AS
+	PRINT 'Loja adicionada com sucesso!';
+-------------------------------------------------------------------------------
 
 --Mensagem: Loja atualizada com Sucesso!
---CREATE TRIGGER atualizarLoja
---ON
---	Store
---FOR 
---	UPDATE 
---AS
---	PRINT 'Loja atualizada com sucesso!'
+CREATE TRIGGER atualizarLoja
+ON
+	Store
+FOR 
+	UPDATE 
+AS
+	PRINT 'Loja atualizada com sucesso!'
 
 --INSERT INTO Store
 
@@ -47,64 +62,64 @@
 --			'Rua 10,Custodia', '50050000','8133351355', 'There is no one who loves pain itself','senhadaPacoval');
 
 
-----Comando para atualizaÁ„o do registro
+----Comando para atualiza√ß√£o do registro
 --UPDATE Store
 --SET Email = 'lojasPacoval221@hotmail.com'
 --WHERE StoreID = 5;
----------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
---Mensagem: Loja deletada com Sucesso!
---CREATE TRIGGER deletarLoja
---ON
---	Store
---FOR
---	DELETE
---AS
---	PRINT 'Loja deletada com sucesso!';
+----Mensagem: Loja deletada com Sucesso!
+CREATE TRIGGER deletarLoja
+ON
+	Store
+FOR
+	DELETE
+AS
+	PRINT 'Loja deletada com sucesso!';
 
---Comando para deletar o registro da loja.
+----Comando para deletar o registro da loja.
 --DELETE FROM Store WHERE StoreID=5;
 
 --SELECT * FROM STORE;
----------------------------------------------------------------------------------
---Mensagem: Produto adicionado com Sucesso!
+-------------------------------------------------------------------------------
+----Mensagem: Produto adicionado com Sucesso!
 
---CREATE TRIGGER addProduto
---ON
---	Product
---FOR 
---	INSERT 
---AS
---	PRINT 'Produto adicionado com sucesso!';
+CREATE TRIGGER addProduto
+ON
+	Product
+FOR 
+	INSERT 
+AS
+	PRINT 'Produto adicionado com sucesso!';
 
 --INSERT INTO Product
 --			(Name,Description,Image,Ean13,SizeID,ColorID,ManufacturerID)
 --VALUES
 --			('Biquini', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
 --			'Contrary to popular belief, Lorem Ipsum is not simply random text.','hjk523io954g',1, 4,2);
----------------------------------------------------------------------------------
---Mensagem: Produto atualizado com Sucesso!
---CREATE TRIGGER atualizarProduto
---ON
---	Product
---FOR 
---	UPDATE 
---AS
---	PRINT 'Produto atualizado com sucesso!'
+-------------------------------------------------------------------------------
+----Mensagem: Produto atualizado com Sucesso!
+CREATE TRIGGER atualizarProduto
+ON
+	Product
+FOR 
+	UPDATE 
+AS
+	PRINT 'Produto atualizado com sucesso!'
 
-----Comando para atualizaÁ„o do registro
+----Comando para atualiza√ßao do registro
 --UPDATE Product
 --SET ColorID = 2
 --WHERE ProductID = 3;
----------------------------------------------------------------------------------
---Mensagem: Produto deletado com Sucesso!
---CREATE TRIGGER deletarProduto
---ON
---	Product
---FOR
---	DELETE
---AS
---	PRINT 'Produto deletado com Sucesso!';
+-------------------------------------------------------------------------------
+----Mensagem: Produto deletado com Sucesso!
+CREATE TRIGGER deletarProduto
+ON
+	Product
+FOR
+	DELETE
+AS
+	PRINT 'Produto deletado com Sucesso!';
 
 ----Comando para deletar o registro da loja.
 --DELETE FROM Product WHERE ProductID=3;
@@ -112,60 +127,60 @@
 --SELECT * FROM STORE;
 
 
----------------------------------------------------------------------------------
---Mensagem: BonificaÁ„o adicionada com Sucesso!
+-------------------------------------------------------------------------------
+--Mensagem: Bonificacao adicionada com Sucesso!
 
---CREATE TRIGGER addBonificacao
---ON
---	Bonus
---FOR 
---	INSERT 
---AS
---	PRINT 'BonificaÁ„o adicionada com sucesso!';
+CREATE TRIGGER addBonificacao
+ON
+	Bonus
+FOR 
+	INSERT 
+AS
+	PRINT 'Bonificacao adicionada com sucesso!';
 
 --INSERT INTO Bonus
 --			(Name,Value,ExpirationDate,StoreID,SalesmanID)
 --VALUES
 --			('Vale Presente', 350, '2022-07-10', 3,2);
----------------------------------------------------------------------------------
---Mensagem: BonificaÁ„o atualizada com Sucesso!
---CREATE TRIGGER atualizarBonus
---ON
---	Bonus
---FOR 
---	UPDATE 
---AS
---	PRINT 'BonificaÁ„o atualizada com sucesso!'
+-------------------------------------------------------------------------------
+----Mensagem: Bonificacao atualizada com Sucesso!
+CREATE TRIGGER atualizarBonus
+ON
+	Bonus
+FOR 
+	UPDATE 
+AS
+	PRINT 'Bonificacao atualizada com sucesso!'
 
-----Comando para atualizaÁ„o do registro
+----Comando para atualizacao do registro
 --UPDATE Bonus
 --SET ExpirationDate = '2022-08-10'
 --WHERE BonusID = 3;
----------------------------------------------------------------------------------
---Mensagem: BonificaÁ„o deletada com Sucesso!
---CREATE TRIGGER deletarBonificacao
---ON
---	Bonus
---FOR
---	DELETE
---AS
---	PRINT 'BonificaÁ„o deletada com sucesso!';
+-------------------------------------------------------------------------------
+--Mensagem: Bonificacao deletada com Sucesso!
+CREATE TRIGGER deletarBonificacao
+ON
+	Bonus
+FOR
+	DELETE
+AS
+	PRINT 'Bonificacao deletada com sucesso!';
 
---Comando para deletar o registro da loja.
+----Comando para deletar o registro da loja.
 --DELETE FROM Bonus WHERE BonusID=2;
 
 --SELECT * FROM Bonus;
 
----------------------------------------------------------------------------------
---Mensagem: FAQ adicionada com Sucesso!
+-------------------------------------------------------------------------------
+----Mensagem: FAQ adicionada com Sucesso!
 
---CREATE TRIGGER addFaq
---ON
---	FAQ
---FOR 
---	INSERT 
---AS
---	PRINT 'Faq adicionada com sucesso!';
+CREATE TRIGGER addFaq
+ON
+	FAQ
+FOR 
+	INSERT 
+AS
+	PRINT 'Faq adicionada com sucesso!';
 
 --INSERT INTO FAQ
 --			(Title,Description)
@@ -173,4 +188,3 @@
 --			('Resetar Senha', 'when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
 --			but also the leap into electronic typesetting');
 --SELECT * FROM FAQ;
-
