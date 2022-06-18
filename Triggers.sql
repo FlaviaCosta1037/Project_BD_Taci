@@ -24,14 +24,16 @@ ON Store
 INSTEAD OF INSERT
 AS
 BEGIN
-	IF EXISTS(SELECT CNPJ FROM INSERTED WHERE LEN(CNPJ) <> 14)
+	IF EXISTS(SELECT CNPJ FROM INSERTED WHERE LEN(CNPJ) <> 14 OR CNPJ LIKE '%[a-Z]%')
 		PRINT 'CNPJ INVÁLIDO'
 	ELSE
 		INSERT INTO Store SELECT Email, CNPJ, Name, Image, Adress, CEP, Phone, Owner, Password FROM INSERTED;
 END;
 
+DROP TRIGGER validacaoCNPJ
+
 --SELECT * FROM Store
---INSERT INTO Store (Email, CNPJ, Name, Image, Adress, CEP, Phone, Owner, Password) Values('negoStore@gmail.com','0178970001091', 'Nego Store', 'alt image', 'Rua do boteco 01', '12345678', '81997892515', 'O nego', 'Nego rulez')
+--INSERT INTO Store (Email, CNPJ, Name, Image, Adress, CEP, Phone, Owner, Password) Values('negoStore@gmail.com','01789700B1091', 'Nego Store', 'alt image', 'Rua do boteco 07', '12345678', '81997892515', 'O nego', 'Nego rulez')
 -------------------------------------------------------------------------------
 
 --Triggers de mensgens
