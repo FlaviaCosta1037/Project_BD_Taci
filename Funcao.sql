@@ -1,5 +1,17 @@
-----Requisito solicitado: Função usada para contabilizar a quantidade de treinos disponíveis
+--Requisito solicitado: Funcao usada para contabilizar a quantidade de treinos disponiveis
 
---Select COUNT(TrainingID) as "Quantidade de treinos" from trainings;
+Select COUNT(TrainingID) as "Quantidade de treinos" from trainings;
 
-----Observações Professor:
+--Observacoes Professor:
+
+select * from TrainingsSalesMan
+
+Select * from Trainings
+
+select * from Salesman
+
+INSERT INTO TrainingsSalesMan values (3, 1)
+
+select count(t.trainingID) as qtdTreinamento, s.Name as Nome from TrainingsSalesMan as t
+JOIN Salesman as s ON t.SalesmanID = s.SalesmanID
+group by t.SalesmanID, s.name ORDER BY t.SalesmanID ASC
