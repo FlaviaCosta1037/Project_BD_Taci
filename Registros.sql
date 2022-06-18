@@ -12,7 +12,6 @@ VALUES
 			a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, 
 			remaining essentially unchanged.');
 
-SELECT * FROM FAQ;
 
 
 INSERT INTO Client	
@@ -22,17 +21,17 @@ VALUES
 			('fred.lucena@gmail.com', 'novaroma44@1997','Fred Lucena'),
 			('silviosantos@hotmail.com', 'silviano@maciano','Silvio Santos');
 
-SELECT * FROM Client;
-
 
 INSERT INTO Category
 			(Name)
 VALUES		('Vestidos'),
 			('Shorts'),
 			('Blusas'),
-			('Conjuntos');
+			('Conjuntos'),
+			('Verão');
 
-SELECT * FROM Category;
+
+
 
 INSERT Size
 		(SizeValue)
@@ -40,7 +39,6 @@ VALUES
 		('PP'),
 		('P'),
 		('M');
-SELECT * FROM Size;
 
 INSERT Color	
 		(Name)
@@ -48,7 +46,6 @@ VALUES	('Rosa'),
 		('Amarelo'),
 		('Vermelho'),
 		('Azul Bebê');
-SELECT * FROM Color;
 
 INSERT Trainings
 		(Title, Description, TotalViews, StoreViews, Video, UniqueUserViews)
@@ -60,7 +57,7 @@ VALUES
 		('Todos Ganham', 'Contrary to popular belief, Lorem Ipsum is not simply random text.',
 		100, 5, 'Where does it come ', 6);
 
-SELECT * FROM Trainings;
+
 
 INSERT Type
 		(Name)
@@ -69,8 +66,6 @@ VALUES
 		('Finanças'),
 		('Gerenciamento'),
 		('Especialista no produto');
-			
-SELECT * FROM Type;
 
 INSERT INTO Bonus
 		(Name, Value, ExpirationDate)
@@ -79,11 +74,7 @@ VALUES
 		('Ganhe um Jantar', 250, '2022-07-21'),
 		('Vale 500', 500, '2022-07-22');
 
-UPDATE Bonus
-SET StoreID = 2, SalesmanID = 1
-WHERE BonusID = 3;
 
-SELECT * FROM Bonus;
 
 INSERT INTO Manufacturer
 	       (Name)
@@ -97,16 +88,15 @@ INSERT INTO Manufacturer
 VALUES
 			('Elastano');
 
-SELECT name FROM Manufacturer;
-
+		
 INSERT INTO Product
             (Name, Description, Image, Ean13)
 VALUES
            ('Camisa', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', 'Contrary to popular belief, Lorem Ipsum is not simply random text.', 'asd123se58145'),
 		   ('Bermuda', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', 'Contrary to popular belief, Lorem Ipsum is not simply random text.','fdr568dfg1236'),
-		   ('Vestido', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', 'Contrary to popular belief, Lorem Ipsum is not simply random text.','yth569hji1235');
+		   ('Vestido', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', 'Contrary to popular belief, Lorem Ipsum is not simply random text.','yth569hji1235'),
+		   ('Camisa Regata', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,', 'Contrary to popular belief, Lorem Ipsum is not simply random text.','gtt569hji1535');
 			
-SELECT * FROM Product;
 
 INSERT INTO Salesman
             (CPF, Name, Phone, Image, Email, Password)
@@ -115,7 +105,6 @@ VALUES
 			('02115298725', 'Diego Maradona', '81987524658', 'Contrary to popular belief, Lorem Ipsum is not simply random text.', 'dieguitoarmando@hotmail.com', 'Lamanodios'),
 			('52874598736', 'Ademir Menezes', '819887543698', 'Contrary to popular belief, Lorem Ipsum is not simply random text.', 'queixadabrabo@hotmail.com', 'Fazedordegol');
 
-SELECT * FROM Salesman;
 
 INSERT INTO Store
             (Email, CNPJ, Name, Image, Adress, CEP, Phone, Owner, Password)
@@ -134,6 +123,9 @@ VALUES (5, 4)
  INSERT INTO [OwnCategoryProduct] 
 			(CategoryID, ProductID)
 VALUES (4, 4)
+
+
+
 
  INSERT INTO [OwnCategoryProduct] 
 			(CategoryID, ProductID)
@@ -170,7 +162,7 @@ VALUES (2, 1)
 UPDATE Trainings
 SET TypeID ='1'
 WHERE TrainingID = '3';
-SELECT * FROM Trainings;
+
 
 --Atualização de registros na tabela Salesman
 --Setado o ID da Loja nos registros do vendedores
@@ -178,7 +170,7 @@ SELECT * FROM Trainings;
 UPDATE Salesman
 SET StoreID ='1'
 WHERE SalesmanID = '3';
-SELECT * FROM Salesman;
+
 
 --Atualização de registros na tabela Trainings
 
@@ -200,6 +192,28 @@ UPDATE Trainings set TypeID = 3 WHERE TrainingID = 2;
   UPDATE Product SET ColorID = 1, ManufacturerID = 4, SizeID =2 WHERE ProductID = 4 
   UPDATE Salesman SET StoreID = 3 WHERE SalesmanID = 1
   UPDATE Salesman SET StoreID = 1 WHERE SalesmanID = 2
+  UPDATE Bonus
+SET StoreID = 2, SalesmanID = 1
+WHERE BonusID = 3;
 
   
   
+
+
+SELECT * from OwnCategoryProduct
+SELECT * from Category
+SELECT * from Product
+SELECT * FROM FAQ;
+SELECT * FROM Trainings;
+SELECT * FROM Salesman;
+SELECT * FROM Salesman;
+SELECT * FROM Category;
+SELECT * FROM Size;
+SELECT * FROM Color;
+SELECT * FROM Trainings;		
+SELECT * FROM Type;
+SELECT * FROM Bonus;
+SELECT * FROM Product;
+SELECT * FROM Client;
+SELECT name FROM Manufacturer;
+SELECT * FROM TrainingsSalesMan
