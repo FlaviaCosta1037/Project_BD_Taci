@@ -16,7 +16,7 @@ BEGIN
 		INSERT INTO Bonus SELECT Name,Value,ExpirationDate,StoreID,SalesmanID FROM INSERTED;
 END;
 --SELECT * FROM Bonus;
---INSERT INTO Bonus VALUES ('Vale viagem', 500, '2022-06-19', null, null)
+--INSERT INTO Bonus VALUES ('Vale Alegria', 900, '2022-06-10', null, null)
 
 -------------------------------------------------------------------------------
 CREATE TRIGGER validacaoCNPJ
@@ -81,7 +81,6 @@ AS
 --DELETE FROM Store WHERE StoreID=5;
 
 --SELECT * FROM STORE;
--------------------------------------------------------------------------------
 ----Mensagem: Produto adicionado com Sucesso!
 
 CREATE TRIGGER addProduto
@@ -97,7 +96,6 @@ AS
 --VALUES
 --			('Biquini', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
 --			'Contrary to popular belief, Lorem Ipsum is not simply random text.','hjk523io954g',1, 4,2);
--------------------------------------------------------------------------------
 ----Mensagem: Produto atualizado com Sucesso!
 CREATE TRIGGER atualizarProduto
 ON

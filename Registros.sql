@@ -149,7 +149,6 @@ VALUES (2, 1)
       INSERT INTO [TrainingsSalesMan] VALUES (2 ,1)
 	  INSERT INTO [TrainingsSalesMan] VALUES (3 ,2)
 	  INSERT INTO [TrainingsSalesMan] VALUES (1 ,2)
-	  INSERT INTO [TrainingsSalesMan] VALUES (1 ,3)
 	  INSERT INTO [TrainingsSalesMan] VALUES (2 ,3)
       INSERT INTO [TrainingsSalesMan] VALUES (3 ,3)
 
